@@ -1,7 +1,5 @@
-# En este ejercicio se emplea un patrón de diseño que permite crear clases que pueden extenderse de forma modular denominada factory,
-
-
 # External Packages
+
 from PIL import Image
 import mimetypes
 from pdfminer.high_level import extract_text
@@ -10,6 +8,7 @@ from pdfminer.pdfdocument import PDFDocument
 import docx
 
 # Local Packages
+
 import re
 from abc import ABC,abstractmethod
 
@@ -75,7 +74,7 @@ class PdfMetadataExtractor(MetadataExtractor):
                             decoded_value = value
                         metadata[key] = decoded_value
             else:
-                print("Error al sacar los metadatos")
+                print("Error retrieving metadata from the document")
             # Procesamos el texto del pdf para obtener otros datos de interes
             text = extract_text(filepath)
             metadata["Emails"] = self._extract_emails(text)
